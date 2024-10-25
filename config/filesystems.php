@@ -43,6 +43,24 @@ return [
             'throw' => false,
         ],
 
+        'sys_temp' => [
+            'driver' => 'local',
+            'root' => sys_get_temp_dir(),
+            'url' => env('APP_URL') . '/tmp',
+            'visibility' => 'public',
+            'throw' => false,
+            'followSymLinks' => true,
+        ],
+
+        'sites_dir' => [
+            'driver' => 'local',
+            'root' => env('SITES_DIR_PATH', realpath(__DIR__ . '/../../')),
+            'url' => env('APP_URL') . '/tmp',
+            'visibility' => 'public',
+            'throw' => false,
+            'followSymLinks' => true,
+        ],
+
         's3' => [
             'driver' => 's3',
             'key' => env('AWS_ACCESS_KEY_ID'),
